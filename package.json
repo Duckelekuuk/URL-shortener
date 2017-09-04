@@ -19,6 +19,7 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
-    "vue-axios": "^2.0.2"
+    "vue-axios": "^2.0.2",
+    "vue-clipboards": "^1.1.0"
   }
 }
