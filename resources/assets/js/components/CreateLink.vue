@@ -46,7 +46,7 @@
         data: function () {
             return {
                 url: '',
-                result: 'test',
+                result: '',
                 errors: []
             }
         },
