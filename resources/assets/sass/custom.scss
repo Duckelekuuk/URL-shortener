@@ -1,0 +1,29 @@
+body {
+  background-color: $background-color;
+}
+
+.content {
+  padding: 25px 0;
+}
+
+.page-title {
+  color: $main-text-color;
+  font-size: 58pt;
+  font-weight: 200;
+}
+
+.subtitle {
+  color: $main-text-color;
+  font-size: 15pt;
+  font-family: 'Segoe UI', Segoe UI;
+  font-weight: 100;
+  margin: 20px 0;
+}
+
+.page-head-image {
+  max-width: 200px;
+}
+
+.footer {
+  background-color: $footer-color;
+}

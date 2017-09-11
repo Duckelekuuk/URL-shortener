@@ -1,3 +1,11 @@
-@include('partials.header')
-@include('partials.body')
-@include('partials.footer')
+<!DOCTYPE html>
+<html>
+    <head>
+        @include('partials.header')
+    </head>
+    <body>
+        @include('partials.body')
+    </body>
+
+    @include('partials.footer')
+</html>
