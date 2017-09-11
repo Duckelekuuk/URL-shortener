@@ -13,6 +13,7 @@ import vue_clipboards from "vue-clipboards";
 
 // importing custom components
 import CreateLink from "./components/CreateLink.vue";
+import HookShareX from "./components/HookShareX.vue";
 
 
 // Adding the X-CSRF-Token to all axios request
@@ -34,6 +35,7 @@ Vue.use(vue_clipboards);
  */
 
 Vue.component('create-link', CreateLink);
+Vue.component('create-share-x', HookShareX);
 
 const app = new Vue({
     el: '#app'

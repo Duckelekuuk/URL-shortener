@@ -6,6 +6,15 @@ body {
   padding: 25px 0;
 }
 
+.btn-main {
+  background-color: $primary-color;
+  border-radius: 0;
+  color: white;
+  font-family: Raleway, serif;
+  padding: 12px 24px;
+  font-size: 20px;
+}
+
 .page-title {
   color: $main-text-color;
   font-size: 58pt;
@@ -15,7 +24,7 @@ body {
 .subtitle {
   color: $main-text-color;
   font-size: 15pt;
-  font-family: 'Segoe UI', Segoe UI;
+  font-family: 'Segoe UI', Segoe UI, serif;
   font-weight: 100;
   margin: 20px 0;
 }
