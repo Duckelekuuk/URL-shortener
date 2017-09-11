@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/', 'LinkController@index');
+Route::get('/', 'LinkController@index')->name('index');
 Route::get('/{code}', 'LinkController@viewLink');

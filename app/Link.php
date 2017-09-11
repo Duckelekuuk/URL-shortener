@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model
 {
     protected $fillable = [
-        'code', 'url'
+        'code', 'url', 'clicks'
     ];
 }

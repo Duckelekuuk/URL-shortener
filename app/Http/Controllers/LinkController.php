@@ -16,10 +16,11 @@ class LinkController extends Controller
         $link = Link::where('code', $code);
 
         if ($link->exists()) {
+            $link->increment('clicks');
             return Redirect::to($link->first()->url);
         }
 
-        return redirect('home')->with('error', 'Link not found');
+        return route('index');
     }
 
     public function create(CreateLink $request) {
