@@ -11,7 +11,7 @@
                     <div class="modal-body">
                         <textarea class="form-control shareX-json-message" cols="20" rows="20" readonly>{{ shareX_data | pretty }}</textarea>
 
-                        <span class="btn btn-block btn-main" type="button" v-clipboard="shareX_data">Copy</span>
+                        <span class="btn btn-block btn-main" type="button" v-clipboard="shareX_data" @success="handleSuccess"><span id="shareX-copy-text">Copy</span></span>
                     </div>
                 </div>
             </div>
@@ -29,6 +29,25 @@
         data: function () {
             return {
                 shareX_data: '{"Name": "' + this.name + '", "DestinationType": "URLShortener", "RequestType": "POST", "RequestURL": "' + this.url + '", "Arguments": { "url": "$input$" }, "ResponseType": "Text", "URL": "$json:code$" }',
+            }
+        },
+
+        methods: {
+            handleSuccess(e) {
+                var object = this;
+                object.toggleFade();
+
+                setTimeout(function () {
+                    object.toggleFade();
+                }, 2000);
+            },
+
+            toggleFade() {
+                $('#shareX-copy-text').stop().css('opacity', '0').html(function (_, oldText) { // Set the opacity of the div to 0 and then change the html (flip it based on last value)
+                    return oldText == 'Copied!' ? 'Copy' : 'Copied!'
+                }).animate({
+                    opacity: 1 // Animate opacity to 1 with a duration of 2 sec
+                }, 1000);
             }
         },
 

@@ -15,6 +15,10 @@ body {
   font-size: 20px;
 }
 
+.btn-main:hover, .btn-main:focus {
+  color: white;
+}
+
 .page-title {
   color: $main-text-color;
   font-size: 58pt;
