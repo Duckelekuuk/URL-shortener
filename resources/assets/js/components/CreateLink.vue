@@ -10,21 +10,37 @@
             </div>
         </div>
 
-        <div class="modal fade bd-example-modal-lg" id="create-link-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="create-link-modal" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="input-group">
-                            <input class="form-control" :value="result" readonly>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Result data</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input class="form-control create-link-input" :value="result" readonly>
 
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" v-clipboard="result">Copy</button>
-                            </span>
-                        </div>
+                        <span class="btn btn-block btn-main" type="button" v-clipboard="result" @success="handleSuccess"><span id="create-link-copy-text">Copy</span></span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!--<div class="modal fade bd-example-modal-lg" id="create-link-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+            <!--<div class="modal-dialog modal-lg">-->
+                <!--<div class="modal-content">-->
+                    <!--<div class="col-md-8 col-md-offset-2">-->
+                        <!--<div class="input-group">-->
+                            <!--<input class="form-control" :value="result" readonly>-->
+
+                            <!--<span class="input-group-btn">-->
+                                <!--<button class="btn btn-default" type="button" v-clipboard="result">Copy</button>-->
+                            <!--</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
@@ -64,7 +80,33 @@
                         this.errors = response.data.errors.destination;
                     }
                 });
+            },
+
+            handleSuccess(e) {
+                var object = this;
+                object.toggleFade();
+
+                setTimeout(function () {
+                    object.toggleFade();
+                }, 2000);
+            },
+
+            toggleFade() {
+                $('#create-link-copy-text').stop().css('opacity', '0').html(function (_, oldText) { // Set the opacity of the div to 0 and then change the html (flip it based on last value)
+                    return oldText == 'Copied!' ? 'Copy' : 'Copied!'
+                }).animate({
+                    opacity: 1 // Animate opacity to 1 with a duration of 2 sec
+                }, 1000);
             }
         }
     }
 </script>
+
+<style lang="scss">
+    .create-link-input {
+        font-size: 18px;
+        height: 50px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+</style>

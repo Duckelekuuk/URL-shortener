@@ -11880,6 +11880,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -11905,6 +11921,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this.errors = response.data.errors.destination;
                 }
             });
+        },
+        handleSuccess: function handleSuccess(e) {
+            var object = this;
+            object.toggleFade();
+
+            setTimeout(function () {
+                object.toggleFade();
+            }, 2000);
+        },
+        toggleFade: function toggleFade() {
+            $('#create-link-copy-text').stop().css('opacity', '0').html(function (_, oldText) {
+                // Set the opacity of the div to 0 and then change the html (flip it based on last value)
+                return oldText == 'Copied!' ? 'Copy' : 'Copied!';
+            }).animate({
+                opacity: 1 // Animate opacity to 1 with a duration of 2 sec
+            }, 1000);
         }
     }
 });
@@ -46650,6 +46682,10 @@ module.exports = function listToStyles (parentId, list) {
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
+
+/* styles */
+__webpack_require__(64)
+
 var Component = __webpack_require__(9)(
   /* script */
   __webpack_require__(30),
@@ -46815,24 +46851,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.errors), function(error) {
     return _c('li', [_vm._v(_vm._s(error))])
   }))])])]) : _vm._e(), _vm._v(" "), _c('div', {
-    staticClass: "modal fade bd-example-modal-lg",
+    staticClass: "modal fade",
     attrs: {
       "id": "create-link-modal",
-      "tabindex": "-1",
-      "role": "dialog",
-      "aria-labelledby": "exampleModalLabel",
-      "aria-hidden": "true"
+      "role": "dialog"
     }
   }, [_c('div', {
     staticClass: "modal-dialog modal-lg"
   }, [_c('div', {
     staticClass: "modal-content"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "input-group"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
   }, [_c('input', {
-    staticClass: "form-control",
+    staticClass: "form-control create-link-input",
     attrs: {
       "readonly": ""
     },
@@ -46840,19 +46871,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "value": _vm.result
     }
   }), _vm._v(" "), _c('span', {
-    staticClass: "input-group-btn"
-  }, [_c('button', {
     directives: [{
       name: "clipboard",
       rawName: "v-clipboard",
       value: (_vm.result),
       expression: "result"
     }],
-    staticClass: "btn btn-default",
+    staticClass: "btn btn-block btn-main",
     attrs: {
       "type": "button"
+    },
+    on: {
+      "success": _vm.handleSuccess
     }
-  }, [_vm._v("Copy")])])])])])])]), _vm._v(" "), _c('div', {
+  }, [_c('span', {
+    attrs: {
+      "id": "create-link-copy-text"
+    }
+  }, [_vm._v("Copy")])])])])])]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-8 col-md-offset-2 text-center"
@@ -46893,7 +46929,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "value": "Create"
     }
   })])])])])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "modal-header"
+  }, [_c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("×")]), _vm._v(" "), _c('h4', {
+    staticClass: "modal-title"
+  }, [_vm._v("Result data")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -47362,6 +47410,39 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-f46d0566\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ChangeTheme.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-f46d0566\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ChangeTheme.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(35)();
+exports.push([module.i, "\n.create-link-input {\n  font-size: 18px;\n  height: 50px;\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n}\n", ""]);
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(63);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(47)("1cd91580", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-e9b3d01c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CreateLink.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-e9b3d01c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CreateLink.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
