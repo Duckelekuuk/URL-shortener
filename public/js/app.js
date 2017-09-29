@@ -11886,7 +11886,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         createLink: function createLink() {
             var _this = this;
 
-            this.axios.post('/api/create', { url: this.url }).then(function (response) {
+            this.axios.post('/api/create', { destination: this.url }).then(function (response) {
                 if (response.data.success) {
                     _this.result = response.data.code;
                     _this.errors = [];
@@ -11894,7 +11894,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     $('#create-link-modal').modal();
                 } else {
                     _this.result = '';
-                    _this.errors = response.data.errors.url;
+                    _this.errors = response.data.errors.destination;
                 }
             });
         }
@@ -11937,7 +11937,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['image', 'name', 'url'],
     data: function data() {
         return {
-            shareX_data: '{"Name": "' + this.name + '", "DestinationType": "URLShortener", "RequestType": "POST", "RequestURL": "' + this.url + '", "Arguments": { "url": "$input$" }, "ResponseType": "Text", "URL": "$json:code$" }'
+            shareX_data: '{"Name": "' + this.name + '", "DestinationType": "URLShortener", "RequestType": "POST", "RequestURL": "' + this.url + '", "Arguments": { "destination": "$input$" }, "ResponseType": "Text", "URL": "$json:code$" }'
         };
     },
 

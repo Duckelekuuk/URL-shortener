@@ -53,7 +53,7 @@
         
         methods: {
             createLink() {
-                this.axios.post('/api/create', {url : this.url}).then(response => {
+                this.axios.post('/api/create', {destination : this.url}).then(response => {
                     if (response.data.success) {
                         this.result = response.data.code;
                         this.errors = [];
@@ -61,7 +61,7 @@
                         $('#create-link-modal').modal();
                     } else {
                         this.result = '';
-                        this.errors = response.data.errors.url;
+                        this.errors = response.data.errors.destination;
                     }
                 });
             }

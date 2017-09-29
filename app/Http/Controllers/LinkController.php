@@ -17,21 +17,39 @@ class LinkController extends Controller
 
         if ($link->exists()) {
             $link->increment('clicks');
-            return Redirect::to($link->first()->url);
+            return Redirect::to($link->first()->destination);
         }
 
         return route('index');
     }
 
+    public function statistic($code) {
+        $link = Link::where('code', $code);
+
+        if (!$link->exists()) {
+            return response(['success' => false, 'errors' => ['Link not found']], 404);
+        }
+
+        $link = $link->first();
+
+        return response([
+            'success' => true,
+            'code' => $link->code,
+            'link' => url($link->code),
+            'destination' => $link->destination,
+            'clicks' => $link->clicks,
+                            ], 200);
+    }
+
     public function create(CreateLink $request) {
-        $exists = Link::where('url', $request->get('url'));
+        $exists = Link::where('destination', $request->get('destination'));
 
         if ($exists->exists()) {
             return response(['success' => true, 'code' => url($exists->first()->code)], 200);
         }
 
         $created = Link::create([
-            'url' => $request->get('url'),
+            'destination' => $request->get('destination'),
             'code' => $this->generateUniqueCode(),
         ]);
 

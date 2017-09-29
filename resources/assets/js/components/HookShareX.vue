@@ -28,7 +28,7 @@
         props: ['image', 'name', 'url'],
         data: function () {
             return {
-                shareX_data: '{"Name": "' + this.name + '", "DestinationType": "URLShortener", "RequestType": "POST", "RequestURL": "' + this.url + '", "Arguments": { "url": "$input$" }, "ResponseType": "Text", "URL": "$json:code$" }',
+                shareX_data: '{"Name": "' + this.name + '", "DestinationType": "URLShortener", "RequestType": "POST", "RequestURL": "' + this.url + '", "Arguments": { "destination": "$input$" }, "ResponseType": "Text", "URL": "$json:code$" }',
             }
         },
 

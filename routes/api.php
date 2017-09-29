@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/create', 'LinkController@create')->name('api.create');
+
+Route::get('/{code}', 'LinkController@statistic')->name('api.statistic');
