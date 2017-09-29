@@ -8,6 +8,9 @@
         <h1 class="text-center page-title">URL shortener</h1>
         <h5 class="text-center subtitle">short.duckelekuuk.com</h5>
     </div>
+
+    <change-theme></change-theme>
+
     <create-share-x image="{{ asset('img/ShareX_Logo.png') }}" name="{{ env("APP_NAME") }}" url="{{ route("api.create") }}"></create-share-x>
 
     <create-link></create-link>

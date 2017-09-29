@@ -8,12 +8,14 @@ require('./bootstrap');
 
 import Vue from "vue";
 import axios from "axios";
-import VueAxios from "vue-axios";
+import vueAxios from "vue-axios";
 import vue_clipboards from "vue-clipboards";
+import toggleButton from 'vue-js-toggle-button';
 
 // importing custom components
 import CreateLink from "./components/CreateLink.vue";
 import HookShareX from "./components/HookShareX.vue";
+import ChangeTheme from "./components/ChangeTheme.vue";
 
 
 // Adding the X-CSRF-Token to all axios request
@@ -25,8 +27,9 @@ axios.interceptors.request.use(function (config) {
 
 window.eventBus = new Vue({});
 
-Vue.use(VueAxios, axios);
+Vue.use(vueAxios, axios);
 Vue.use(vue_clipboards);
+Vue.use(toggleButton);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,6 +39,7 @@ Vue.use(vue_clipboards);
 
 Vue.component('create-link', CreateLink);
 Vue.component('create-share-x', HookShareX);
+Vue.component('change-theme', ChangeTheme);
 
 const app = new Vue({
     el: '#app'

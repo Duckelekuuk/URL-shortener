@@ -1,5 +1,6 @@
 body {
   background-color: $background-color;
+  transition-duration: 1s;
 }
 
 .content {
@@ -20,12 +21,14 @@ body {
 }
 
 .page-title {
+  transition-duration: 1s;
   color: $main-text-color;
   font-size: 58pt;
   font-weight: 200;
 }
 
 .subtitle {
+  transition-duration: 1s;
   color: $main-text-color;
   font-size: 15pt;
   font-family: 'Segoe UI', Segoe UI, serif;
@@ -39,4 +42,16 @@ body {
 
 .footer {
   background-color: $footer-color;
+}
+
+.light-theme .page-title {
+  color: $primary-color;
+}
+
+.light-theme .subtitle {
+  color: $primary-color;
+}
+
+.light-theme {
+  background-color: $background-color-light;
 }

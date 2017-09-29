@@ -3,9 +3,8 @@
     <head>
         @include('partials.header')
     </head>
-    <body>
+    <body id="body">
         @include('partials.body')
     </body>
-
     @include('partials.footer')
 </html>
