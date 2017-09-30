@@ -21,6 +21,7 @@
   "dependencies": {
     "vue-axios": "^2.0.2",
     "vue-clipboards": "^1.1.0",
+    "vue-cookie": "^1.1.4",
     "vue-js-toggle-button": "^1.1.5"
   }
 }

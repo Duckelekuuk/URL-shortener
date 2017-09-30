@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateLink;
 use App\Link;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 
 class LinkController extends Controller
 {
-    public function index() {
-        return view('home');
+    public function index(Request $request) {
+        $darkTheme = $request->cookie('dark-theme', "true") == "true";
+        return view('home', compact('darkTheme'));
     }
 
     public function viewLink($code) {

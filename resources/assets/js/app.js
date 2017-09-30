@@ -11,6 +11,7 @@ import axios from "axios";
 import vueAxios from "vue-axios";
 import vue_clipboards from "vue-clipboards";
 import toggleButton from 'vue-js-toggle-button';
+import vueCookie from 'vue-cookie';
 
 // importing custom components
 import CreateLink from "./components/CreateLink.vue";
@@ -30,6 +31,7 @@ window.eventBus = new Vue({});
 Vue.use(vueAxios, axios);
 Vue.use(vue_clipboards);
 Vue.use(toggleButton);
+Vue.use(vueCookie);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

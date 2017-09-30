@@ -2,6 +2,8 @@
 
 @section('title', 'Home')
 
+@section('body-class', !$darkTheme ? 'light-theme' : '')
+
 @section('content')
     <div class="page-head">
         <img class="img-responsive center-block page-head-image" src="{{ asset('img/logo.png') }}">

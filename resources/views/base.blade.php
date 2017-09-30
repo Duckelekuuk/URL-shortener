@@ -3,7 +3,7 @@
     <head>
         @include('partials.header')
     </head>
-    <body id="body">
+    <body id="body" class="@yield('body-class')">
         @include('partials.body')
     </body>
     @include('partials.footer')

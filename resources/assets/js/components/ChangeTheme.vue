@@ -1,7 +1,7 @@
 <template>
     <div class="toggle-theme-button">
         <toggle-button
-                :value="true"
+                :value="darkTheme"
                 :color="{checked: '#CFCFCF', unchecked: '#00bc8c'}"
                 :width="100"
                 :height="30"
@@ -15,15 +15,21 @@
     export default {
         data: function () {
             return {
-                toggled: true,
+                darkTheme: true,
             }
+        },
+
+        created() {
+            this.darkTheme = Vue.cookie.get('dark-theme') === 'true';
         },
 
         methods: {
             onChangeEventHandler(event) {
-                this.toggled = event.value;
+                this.darkTheme = event.value;
 
-                if (this.toggled) {
+                Vue.cookie.set('dark-theme', this.darkTheme, 30);
+
+                if (this.darkTheme) {
                     $('body').removeClass('light-theme')
                 } else {
                     $('body').addClass('light-theme')
