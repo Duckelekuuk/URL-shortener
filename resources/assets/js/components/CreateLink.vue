@@ -26,31 +26,15 @@
             </div>
         </div>
 
-        <!--<div class="modal fade bd-example-modal-lg" id="create-link-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-            <!--<div class="modal-dialog modal-lg">-->
-                <!--<div class="modal-content">-->
-                    <!--<div class="col-md-8 col-md-offset-2">-->
-                        <!--<div class="input-group">-->
-                            <!--<input class="form-control" :value="result" readonly>-->
-
-                            <!--<span class="input-group-btn">-->
-                                <!--<button class="btn btn-default" type="button" v-clipboard="result">Copy</button>-->
-                            <!--</span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
 
                 <form @submit.prevent="createLink">
-                    <div class="col-sm-10">
+                    <div class="col-sm-12">
                         <input class="form-control" required v-model="url" placeholder="https://google.com"/>
                     </div>
 
-                    <input type="submit" value="Create" class="btn btn-info col-sm-2">
+                    <input type="submit" value="Create" class="btn col-sm-6 col-sm-push-3 btn-main btn-create">
                 </form>
             </div>
         </div>
@@ -108,5 +92,10 @@
         height: 50px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+    }
+
+    .btn-create {
+        padding: 2px 24px;
+        margin-top: 18px;
     }
 </style>

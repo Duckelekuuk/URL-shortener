@@ -14,10 +14,12 @@ body {
   font-family: Raleway, serif;
   padding: 12px 24px;
   font-size: 20px;
+  transition-duration: 0.2s;
 }
 
 .btn-main:hover, .btn-main:focus {
   color: white;
+  background-color: #008e6b;
 }
 
 .page-title {
