@@ -19,6 +19,7 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "vue-axios": "^2.0.2",
     "vue-clipboards": "^1.1.0",
     "vue-cookie": "^1.1.4",
