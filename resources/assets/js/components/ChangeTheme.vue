@@ -20,7 +20,7 @@
         },
 
         created() {
-            this.darkTheme = Vue.cookie.get('dark-theme') === 'true';
+            this.darkTheme = Vue.cookie.get('dark-theme') === 'true' || Vue.cookie.get('dark-theme') == null;
         },
 
         methods: {
