@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinksTable extends Migration
+class CreateUserKeysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('links', function (Blueprint $table)
-        {
+        Schema::create('user_keys', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('destination')->unique();
-            $table->string('code', 12);
-            $table->integer('clicks')->default(0);
-            $table->string('owner')->refrences('value')->on('user_keys');
+            $table->string('key')->unique();
+            $table->string('value');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('links');
+        Schema::dropIfExists('user_keys');
     }
 }
