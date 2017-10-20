@@ -1,11 +1,3 @@
-require('./bootstrap');
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 import Vue from "vue";
 import axios from "axios";
 import vueAxios from "vue-axios";
@@ -18,11 +10,21 @@ import CreateLink from "./components/CreateLink.vue";
 import HookShareX from "./components/HookShareX.vue";
 import ChangeTheme from "./components/ChangeTheme.vue";
 
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+require('./bootstrap');
+
+window.Vue = require('vue');
+
 
 // Adding the X-CSRF-Token to all axios request
 axios.interceptors.request.use(function (config) {
     config.headers['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
-    config.headers['APP'] = 'url-shortener';
+    config.headers['APP'] = window.Laravel.appName;
     return config
 });
 

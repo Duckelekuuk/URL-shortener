@@ -3,6 +3,7 @@
 <title>@yield('title')</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-touch-icon.png') }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
@@ -14,5 +15,8 @@
 <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
 <script>
-    window.Laravel = {csrfToken: '{{ csrf_token() }}'}
+    window.Laravel = {
+        csrfToken: '{{ csrf_token() }}',
+        appName: '{{ env('APP_NAME') }}'
+    }
 </script>

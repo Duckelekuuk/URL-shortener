@@ -22,7 +22,7 @@ class LinkController extends Controller
             return Redirect::to($link->first()->destination);
         }
 
-        return route('index');
+        return redirect(route('index'));
     }
 
     public function statistic($code) {
