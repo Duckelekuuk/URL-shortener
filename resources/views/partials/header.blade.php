@@ -14,7 +14,7 @@
 
 <!-- Meta tags for SEO -->
 <meta name="description" content="Easily shorten your long url with short.duckelekuuk.com. Creating a short link with a click of the button. Link your shareX to short.Duckelekuuk.com" />
-<meta name="keywords" content="Url, Shortener, link, ShareX, Duco, Lindner, Duckelekuuk, short" />
+<meta name="keywords" content="Url, Shortener, link, ShareX, Duco, Lindner, Duckelekuuk, Url Shortener" />
 <meta name="author" content="Duckelekuuk">
 <meta name="robots" content="index, nofollow" />
 
