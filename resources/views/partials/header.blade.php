@@ -12,6 +12,12 @@
 <link rel="mask-icon" href="{{ asset('img/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
 <meta name="theme-color" content="#222222">
 
+<!-- Meta tags for SEO -->
+<meta name="description" content="Easily shorten your long url with short.duckelekuuk.com. Creating a short link with a click of the button. Link your shareX to short.Duckelekuuk.com" />
+<meta name="keywords" content="Url, Shortener, link, ShareX, Duco, Lindner, Duckelekuuk, short" />
+<meta name="author" content="Duckelekuuk">
+<meta name="robots" content="index, nofollow" />
+
 <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
 <script>
