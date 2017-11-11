@@ -10,8 +10,8 @@
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     #URL Canonicalization
-    RewriteCond %{HTTP_HOST} ^www\.short\.duckelekuuk.com\.com$
-    RewriteRule ^/?$ "http\:\/\/short\.duckelekuuk\.com\/" [R=301,L]
+    RewriteCond %{HTTP_HOST} ^(?:www\.)short.duckelekuuk.com$ [NC]
+    RewriteRule ^(.*)$ https://short.duckelekuuk.com/$1 [L,R=301]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
