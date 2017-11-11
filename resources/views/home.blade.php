@@ -13,7 +13,7 @@
 
     <change-theme></change-theme>
 
-    <create-share-x image="{{ asset('img/ShareX_Logo.png') }}" name="{{ env("APP_NAME") }}" url="{{ route("api.create") }}"></create-share-x>
+    <create-share-x image="{{ asset('img/ShareX_Logo.png') }}" name="{{ Config::get('app.name') }}" url="{{ route("api.create") }}"></create-share-x>
 
     <create-link></create-link>
 
