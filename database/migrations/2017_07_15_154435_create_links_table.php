@@ -19,7 +19,6 @@ class CreateLinksTable extends Migration
             $table->string('destination')->unique();
             $table->string('code', 12);
             $table->integer('clicks')->default(0);
-            $table->string('owner')->refrences('value')->on('user_keys');
             $table->timestamps();
         });
     }
