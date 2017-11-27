@@ -10,14 +10,6 @@ use Illuminate\Http\Request;
 class LinkController extends Controller
 {
 
-
-    /**
-     * LinkController constructor.
-     */
-    public function __construct() {
-        $this->middleware('');
-    }
-
     public function index(Request $request) {
         $darkTheme = $request->cookie('dark-theme', "true") == "true";
         return view('home', compact('darkTheme'));
