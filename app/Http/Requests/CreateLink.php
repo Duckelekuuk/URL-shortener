@@ -25,7 +25,7 @@ class CreateLink extends FormRequest
     public function rules()
     {
         return [
-            'destination' => 'required|url|max:255'
+            'destination' => 'required|url'
         ];
     }
 
