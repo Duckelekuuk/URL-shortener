@@ -52,8 +52,16 @@
         },
         
         methods: {
+            formatUrl() {
+                if (this.url.startsWith('https://') || this.url.startsWith('http://')) {
+                    return this.url;
+                }
+
+                return "http://" + this.url;
+            },
+
             createLink() {
-                this.axios.post('/api/create', {destination : this.url}).then(response => {
+                this.axios.post('/api/create', {destination : this.formatUrl()}).then(response => {
                     if (response.data.success) {
                         this.result = response.data.code;
                         this.errors = [];
