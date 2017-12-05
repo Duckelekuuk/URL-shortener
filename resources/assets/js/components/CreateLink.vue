@@ -53,6 +53,8 @@
         
         methods: {
             formatUrl() {
+                console.log('Formatting url');
+                this.url = this.url.replace(/\s+/g, '');
                 if (this.url.startsWith('https://') || this.url.startsWith('http://')) {
                     return this.url;
                 }
