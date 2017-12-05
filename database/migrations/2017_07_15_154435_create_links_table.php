@@ -17,7 +17,7 @@ class CreateLinksTable extends Migration
         {
             $table->increments('id');
             $table->text('destination');
-            $table->string('code', 12);
+            $table->string('code', 12)->unique();
             $table->integer('clicks')->default(0);
             $table->timestamps();
         });
