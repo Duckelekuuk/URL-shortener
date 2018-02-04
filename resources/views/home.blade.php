@@ -8,7 +8,7 @@
     <div class="page-head">
         <img class="img-responsive center-block page-head-image" src="{{ asset('img/logo.png') }}" alt="logo URL shortener">
         <h1 class="text-center page-title">URL shortener</h1>
-        <h2 class="text-center subtitle">short.duckelekuuk.com</h2>
+        <h2 class="text-center subtitle">short.duckelekuuk.com | duckeleku.uk</h2>
     </div>
 
     <change-theme></change-theme>
