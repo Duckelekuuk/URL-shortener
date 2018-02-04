@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateLink;
 use App\Link;
+use Config;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,7 @@ class LinkController extends Controller
         $exists = Link::where('destination', $request->get('destination'));
 
         if ($exists->exists()) {
-            return response(['success' => true, 'code' => url($exists->first()->code)], 200);
+            return response(['success' => true, 'code' => Config::get("app.url") . '/' . $exists->first()->code], 200);
         }
 
         $created = Link::create([
@@ -56,7 +57,7 @@ class LinkController extends Controller
             'code' => $this->generateUniqueCode(),
         ]);
 
-        return response(['success' => true, 'code' => url($created->code)], 200);
+        return response(['success' => true, 'code' => Config::get("app.url") . '/' . $created->code], 200);
     }
 
     function generateUniqueCode() {
